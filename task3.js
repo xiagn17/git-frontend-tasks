@@ -1,19 +1,19 @@
-var a = parseInt(process.argv[2]);
-var b = parseInt(process.argv[3]);
+let a = parseInt(process.argv[2]);
+let b = parseInt(process.argv[3]);
 
-var finalInSecs = a + b;
+let finalInSecs = a + b;
 
-var secs = finalInSecs % 60;
-var mins = Math.floor((finalInSecs / 60)) % 60;
-var hours = Math.floor(finalInSecs / 3600);
+let secs = finalInSecs % 60;
+let mins = Math.floor((finalInSecs / 60)) % 60;
+let hours = Math.floor(finalInSecs / 3600);
 
-var firstArray = [1, 21, 31, 41, 51];
-var secondArray = [2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54];
+let firstArray = [1, 21, 31, 41, 51];
+let secondArray = [2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54];
 
 function outputing() {
-    var strSecs = "секунд";
-    var strMins = "минут";
-    var strHours = "часов";
+    let strSecs = "секунд";
+    let strMins = "минут";
+    let strHours = "часов";
     if (firstArray.includes(secs)){
         strSecs += "а"
     }
@@ -33,11 +33,11 @@ function outputing() {
         strHours = "часа";
     }
 
-    var outputStr = "";
-    if (hours != 0){
+    let outputStr = "";
+    if (hours !== 0){
         outputStr += hours + " " + strHours;
     }
-    if (mins != 0){
+    if (mins !== 0){
         if (outputStr === "") {
             outputStr += mins + " " + strMins;
         }
@@ -45,7 +45,7 @@ function outputing() {
             outputStr += " " + mins + " " + strMins;
         }
     }
-    if (secs != 0){
+    if (secs !== 0){
         if (outputStr === "") {
             outputStr += secs + " " + strSecs;
         }
@@ -53,8 +53,11 @@ function outputing() {
             outputStr += " " + secs + " " + strSecs;
         }
     }
-
+    if (secs === 0 && mins === 0 && hours === 0){
+        outputStr = "0 секунд";
+    }
     return process.stdout.write(outputStr);
 }
 
 outputing();
+
