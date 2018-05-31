@@ -35,22 +35,22 @@ function outputing() {
 
     let outputStr = "";
     if (hours !== 0){
-        outputStr += hours + " " + strHours;
+        outputStr += hours.toString() + " " + strHours;
     }
     if (mins !== 0){
         if (outputStr === "") {
-            outputStr += mins + " " + strMins;
+            outputStr += mins.toString() + " " + strMins;
         }
         else{
-            outputStr += " " + mins + " " + strMins;
+            outputStr += " " + mins.toString() + " " + strMins;
         }
     }
     if (secs !== 0){
         if (outputStr === "") {
-            outputStr += secs + " " + strSecs;
+            outputStr += secs.toString() + " " + strSecs;
         }
         else{
-            outputStr += " " + secs + " " + strSecs;
+            outputStr += " " + secs.toString() + " " + strSecs;
         }
     }
     if (secs === 0 && mins === 0 && hours === 0){
