@@ -6,30 +6,26 @@ while (process.argv[i] !== undefined){
     i++;
 }
 
-let start = 0;
-let end = ourString.length - 1;
+ourString = ourString.toUpperCase();
+
+let fromStart = [];
+let fromTheEnd = [];
+
+
+for (let i = 0; i < ourString.length; i++){
+    if (ourString.charCodeAt(i) >= 65 && ourString.charCodeAt(i) <= 90){
+        fromStart.push(ourString[i]);
+    }
+    if (ourString.charCodeAt(ourString.length - i - 1) >= 65 && ourString.charCodeAt(ourString.length - i - 1) <= 90){
+        fromTheEnd.push(ourString[ourString.length - i - 1]);
+    }
+}
+
+fromTheEnd.reverse();
 
 let checker = true;
-
-while (start <= end){
-
-    let startAscii = ourString.toUpperCase().charCodeAt(start);
-    while (startAscii < 65 || startAscii > 90){
-        start++;
-        startAscii = ourString.toUpperCase().charCodeAt(start);
-    }
-
-    let endAscii = ourString.toUpperCase().charCodeAt(end);
-    while (endAscii < 65 || endAscii > 90){
-        end--;
-        endAscii = ourString.toUpperCase().charCodeAt(end);
-    }
-
-    if (ourString.toUpperCase()[start] === ourString.toUpperCase()[end]){
-        start++;
-        end--;
-    }
-    else{
+for (let i = 0; i < fromStart.length; i++){
+    if (fromTheEnd[i] !== fromStart[i]){
         checker = false;
         break;
     }
@@ -41,5 +37,4 @@ if (checker){
 else{
     process.stdout.write("NO");
 }
-
 // A - 65, Z - 90, a - 97, z - 122
