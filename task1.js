@@ -1,25 +1,25 @@
-var ourString = "";
+let ourString = "";
 
-var i = 2;
+let i = 2;
 while (process.argv[i] !== undefined){
     ourString += String(process.argv[i]);
     i++;
 }
 
-var start = 0;
-var end = ourString.length - 1;
+let start = 0;
+let end = ourString.length - 1;
 
-var checker = true;
+let checker = true;
 
 while (start <= end){
 
-    var startAscii = ourString.toUpperCase().charCodeAt(start);
+    let startAscii = ourString.toUpperCase().charCodeAt(start);
     while (startAscii < 65 || startAscii > 90){
         start++;
         startAscii = ourString.toUpperCase().charCodeAt(start);
     }
 
-    var endAscii = ourString.toUpperCase().charCodeAt(end);
+    let endAscii = ourString.toUpperCase().charCodeAt(end);
     while (endAscii < 65 || endAscii > 90){
         end--;
         endAscii = ourString.toUpperCase().charCodeAt(end);
