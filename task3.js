@@ -1,5 +1,5 @@
-let a = parseInt(process.argv[1]);
-let b = parseInt(process.argv[2]);
+let a = parseInt(process.argv[2]);
+let b = parseInt(process.argv[3]);
 
 let finalInSecs = a + b;
 

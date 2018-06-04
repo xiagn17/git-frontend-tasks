@@ -1,6 +1,6 @@
 let ourString = "";
 
-let i = 1;
+let i = 2;
 while (process.argv[i] !== undefined){
     ourString += String(process.argv[i]);
     i++;
