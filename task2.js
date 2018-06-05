@@ -1,5 +1,5 @@
 let day = parseInt(process.argv[2]);
-let monthInString = process.argv[3];
+let monthInString = String(process.argv[3]);
 let year = parseInt(process.argv[4]);
 
 
