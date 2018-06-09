@@ -11,25 +11,42 @@ ourString = ourString.toUpperCase();
 let fromStart = [];
 let fromTheEnd = [];
 
+let k = ourString.length - 1;
+while (k !== -1){
+    if (ourString.charCodeAt(k) < 65 || ourString.charCodeAt(k) > 90){
+        let str_helps = ourString;
+        ourString = "";
+        for (let i = 0; i < ourString.length - 1; i++){
+            ourString += str_helps[i];
+        }
+        k--
+    }
+    else{
+        k = -1;
+    }
+}
 
 for (let i = 0; i < ourString.length; i++){
-    if (ourString.charCodeAt(i) >= 65 && ourString.charCodeAt(i) <= 90){
-        fromStart.push(ourString[i]);
-    }
-    if (ourString.charCodeAt(ourString.length - i - 1) >= 65 && ourString.charCodeAt(ourString.length - i - 1) <= 90){
-        fromTheEnd.push(ourString[ourString.length - i - 1]);
-    }
+    fromStart.push(ourString[i]);
+    fromTheEnd.push(ourString[ourString.length - 1 - i]);
 }
 
 fromTheEnd.reverse();
 
 let checker = true;
-for (let i = 0; i < fromStart.length; i++){
-    if (fromTheEnd[i] !== fromStart[i]){
-        checker = false;
-        break;
+if (fromStart.length !== fromTheEnd.length){
+    checker = false;
+}
+else{
+    for (let i = 0; i < fromStart.length; i++){
+        if (fromTheEnd[i] !== fromStart[i]){
+            checker = false;
+            break;
+        }
     }
 }
+
+
 
 if (checker){
     process.stdout.write("YES");
@@ -38,3 +55,6 @@ else{
     process.stdout.write("NO");
 }
 // A - 65, Z - 90, a - 97, z - 122
+
+
+
